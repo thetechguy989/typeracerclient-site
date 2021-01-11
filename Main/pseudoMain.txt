@@ -1,0 +1,6 @@
+when button.Go pressed {
+	send(renderer, "gopressed" + link)
+
+	receieve(main, "gopressed" + link so: change link to gopressed's link
+	)
+}

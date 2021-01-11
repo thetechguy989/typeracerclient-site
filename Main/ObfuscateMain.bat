@@ -1,0 +1,1 @@
+javascript-obfuscator main.js --debug-protection true --self-defending true --compact true --options-preset high-obfuscation

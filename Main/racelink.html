@@ -1,0 +1,67 @@
+<html>
+<head></head>
+<body>
+<style>
+    body {
+        background-color: #666666;
+        color: white;
+        font-family: "Segoe UI";
+    }
+
+    #sampleId {
+        float: left;
+    }
+
+    #raceId {
+        /*padding-left: 20px;*/
+        float: left;
+    }
+
+    #GoButton {
+        float: right;
+        border: solid;
+    }
+
+    a:link {
+        color: white;
+        text-decoration: none;
+        float: right;
+    }
+
+    /* visited link */
+    a:visited {
+        color: white;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    /* selected link */
+    a:active {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<center>
+    <h1>Go to race</h1>
+</center>
+
+<b>
+    <a id="sampleId">https://play.typeracer.com?rt=</a>
+    <form><input type="text" id="raceId" /></form>
+    <script>
+        function buttonTriggered() {
+            GoButton.innerText = 'Loading...';
+            setTimeout('GoButton.innerText = "Go";', 2500);
+        }
+    </script>
+    <center>
+        <b><button onclick="buttonTriggered();" id="GoButton">Go</button>
+    </center>
+</b>
+</body>
+</html>

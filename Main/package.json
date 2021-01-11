@@ -1,0 +1,16 @@
+{
+  "name": "typeracerclient",
+  "productName": "typeracerclient",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "main.js",
+  "scripts": {
+    "start": "node_modules/.bin/electron ."
+  },
+  "dependencies": {
+    "asar": "^3.0.3",
+    "discord-rpc": "^3.1.4",
+    "electron": "^11.1.1",
+    "open": "^7.3.1"
+  }
+}

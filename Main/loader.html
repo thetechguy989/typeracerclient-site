@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        const open = require('open');
+        const ipc = require('electron').ipcRenderer;
+        const currentVersion = 2.0;
+        const httpStream = new XMLHttpRequest();
+
+        httpStream.responseType = "text";
+        httpStream.open("GET", "https://typeracerclient.ml/latestversion.txt");
+        httpStream.send();
+
+        httpStream.onload = function () {
+            if (httpStream.readyState === httpStream.DONE) {
+                if (httpStream.status === 200) {
+                    if (currentVersion != httpStream.response.toString())
+                    {
+                        open('https://typeracerclient.ml/outdatedClient.html');
+                        setTimeout(() => {
+                            close();
+                        }, 1000)
+                    }
+                    else if (currentVersion == httpStream.response.toString())
+                    {
+                        setTimeout(() => {
+                            ipc.send('openLoad', 'window'); // Sends a signal to open the TypeRacer Client.
+                            close();
+                        }, 1000)
+                    }
+                }
+            }
+        }
+
+        // httpStream.onerror = function () {return;}
+    </script>
+
+    <img id="loaderImg" src="typeracerUpscaled.png">
+
+    <center>
+        <b>TypeRacer Client</b>
+        <div id="loadingText">Loading...</div>
+    </center>
+
+    <style>
+        #loaderImg {
+            text-align: center;
+            width: 50%;
+            margin-top: 10%;
+            margin-left: 25%;
+            display: block;
+        }
+
+        center {
+            font-family: Leelawadee;
+            font-size: x-large;
+        }
+    </style>
+</body>
+</html>
